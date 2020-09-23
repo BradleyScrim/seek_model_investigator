@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# PyCharm project settings
+.idea
+venv
+#
+/py/data/models*
+/py/data/f_*
