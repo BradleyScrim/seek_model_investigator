@@ -131,6 +131,11 @@ dmypy.json
 # PyCharm project settings
 .idea
 venv
-#
+
+# generated files
 /py/data/models*
 /py/data/f_*
+/py/data/namespaces.csv
+
+# tmp files
+.~lock.*#

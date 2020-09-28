@@ -4,13 +4,6 @@ from typing import Dict, Tuple, List
 from py import *
 
 
-"""
-- text/xml, application/xml
-    <sbml level="2" version="4" xmlns="http://www.sbml.org/sbml/level2" xmlns:html="http://www.w3.org/1999/xhtml">
-    <sbml level="2" version="4" xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:html="http://www.w3.org/1999/xhtml">
-    <COPASI xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.copasi.org/static/schema.xsd" versionMajor="1" versionMinor="0" versionDevel="30">
-"""
-
 lines: int = 0
 models_without_content: int = 0
 models_with_fairdomhub_link: int = 0

@@ -34,14 +34,14 @@ stats_files: int = 0
 - data.attributes.content_blobs.*.url
 """
 with open("data/models.json", "a") as file:
-    for model_id in range(699, 1000):
+    for model_id in range(0, 1000):
         if model_id % 50 is 0:
             # print("current id: {0}".format(model_id))
             pass
         try:
             result = json_for_resource("models", model_id)
         except Exception as e:
-            # print("no data for #{0}".format(model_id)+" "+e)
+            # print("no data for #{0}".format(model_id),e)
             continue
 
         # write meta data to file
