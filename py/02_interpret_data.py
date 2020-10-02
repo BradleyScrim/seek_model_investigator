@@ -3,7 +3,6 @@ from typing import Dict, Tuple, List
 
 from py import *
 
-
 lines: int = 0
 models_without_content: int = 0
 models_with_fairdomhub_link: int = 0
@@ -13,7 +12,7 @@ models_without_null_url: int = 0
 models_with_valid_mime: int = 0
 models_with_maybe_mime: int = 0
 models_with_invalid_mime: int = 0
-models_with_more_then_one_valid_content: int = 0
+models_with_more_then_one_valid_content: List = []
 models_valid: int = 0
 download_links_by_mime: Dict[str, List[str]] = {}
 
@@ -94,10 +93,10 @@ with open("data/models_20200916.json", "r") as file:
                 models_without_fairdomhub_link += 1
 
             # finish validity check
-            if count_valid_blobs_found is 1:
+            if count_valid_blobs_found >= 1:
                 models_valid += 1
             if count_valid_blobs_found > 1:
-                models_with_more_then_one_valid_content += 1
+                models_with_more_then_one_valid_content.append(id)
 
 
         except:
@@ -113,12 +112,14 @@ print("Number of models without content_blobs: {0}".format(models_without_conten
 print("Number of models with valid MIME¹: {0}".format(models_with_valid_mime))
 print("Number of models with maybe MIME¹: {0}".format(models_with_maybe_mime))
 print("Number of models with invalid MIME¹: {0}".format(models_with_invalid_mime))
-print("Number of models with more then one valid model: {0}".format(models_with_more_then_one_valid_content))
-print("Number of valid models (usable by MaSyMoS): {0}".format(models_valid))
+print("Number of models with more then one MIME-valid content: {0}: {1}".format(
+    len(models_with_more_then_one_valid_content), models_with_more_then_one_valid_content))
+print("Number of MIME-valid models (usable by MaSyMoS): {0}".format(models_valid))
 
-print("\nunknown Files:")
-for s in download_links_by_mime.items():
-    print("- {0}, {1} times: {2}".format(s[0], len(s[1]), s[1]))
+if len(download_links_by_mime.items()) > 0:
+    print("\nunknown Files:")
+    for s in download_links_by_mime.items():
+        print("- {0}, {1} times: {2}".format(s[0], len(s[1]), s[1]))
 
 print("\n¹MIME-overview:\n- valid MIME: {0}\n- maybe MIME: {1}\n- invalid MIME: {2}".format(MIME_TYPES_YES,
                                                                                             MIME_TYPES_MAYBE,

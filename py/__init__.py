@@ -2,9 +2,10 @@ from typing import Tuple
 
 DOMAIN_TO_CHECK = "//fairdomhub.org"
 
-MIME_TYPES_YES: Tuple = ("application/sbml+xml",)
-MIME_TYPES_MAYBE: Tuple = ("application/xml",
-                           "text/xml",)
+MIME_TYPES_YES: Tuple = ("application/sbml+xml",
+                         "application/xml",
+                         "text/xml",)
+MIME_TYPES_MAYBE: Tuple = ()
 MIME_TYPES_NO: Tuple = ("namespace",
                         "application/gzip",
                         "application/json",
