@@ -135,7 +135,7 @@ venv
 # generated files
 /py/data/models*
 /py/data/f_*
-/py/data/namespaces.csv
+/py/data/namespaces*
 
 # tmp files
 .~lock.*#
